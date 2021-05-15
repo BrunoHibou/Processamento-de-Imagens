@@ -16,6 +16,7 @@ def image_to_array(name_image_02):
     return arr
 
 
+
 # Sum
 def sum_and_ponder_array(arr_01, arr_02, lines_columns):
     arr = arr_01
