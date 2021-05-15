@@ -10,10 +10,12 @@ def image_to_grey(path_name_image_01, name_image_02):
     return 0
 
 
+
 def image_to_array(name_image_02):
     img = mpimg.imread(name_image_02)
     arr = np.array(img)
     return arr
+
 
 
 # Sum
