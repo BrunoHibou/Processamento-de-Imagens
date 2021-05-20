@@ -1,6 +1,7 @@
 import numpy as np
 from PIL import Image
 import matplotlib.image as mpimg
+from intensity import intensity
 
 
 def image_to_grey(path_name_image_01, name_image_02):
@@ -8,6 +9,7 @@ def image_to_grey(path_name_image_01, name_image_02):
     img_gray = img.convert('L')
     img_gray.save(name_image_02)
     return 0
+
 
 
 def image_to_array(name_image_02):
@@ -121,6 +123,7 @@ image1 = Image.fromarray(image1.astype('uint8'))
 image1.save('./first_small_img_test_10_10_out.jpg.jpg')
 
 
+<<<<<<< HEAD
 # rotation of 180 degrees
 
 identity = image_rotation_identity(180, 10)
@@ -136,6 +139,17 @@ print(arr_rotate_result)
 # Create a new image after rotation process
 Image.fromarray(arr_rotate_result.astype('uint8')).save('./new-rotated-image-01.jpg')
 
+=======
+image_path = './first_small_img_test-01.jpg'
+image_title = input("novo titulo de imagem: ")
+image_title = image_title + ".jpg"
+image_to_grey(image_path, image_title)
+image_array = image_to_array(image_title)
+
+new_image_array = intensity.IntensityLog(image_array, 10, 10)
+print(new_image_array)
+Image.fromarray(new_image_array).save(image_title)
+>>>>>>> 64049e5b1a0fa5488cec0ed6c6eb79f79b86f482
 
 print("\nEnd of processing... ")
 
