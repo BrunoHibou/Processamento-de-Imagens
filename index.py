@@ -1,6 +1,7 @@
 import numpy as np
 from PIL import Image
 import matplotlib.image as mpimg
+from intensity import intensity
 
 
 def image_to_grey(path_name_image_01, name_image_02):
@@ -10,10 +11,12 @@ def image_to_grey(path_name_image_01, name_image_02):
     return 0
 
 
+
 def image_to_array(name_image_02):
     img = mpimg.imread(name_image_02)
     arr = np.array(img)
     return arr
+
 
 
 # Sum
@@ -98,6 +101,17 @@ image = np.array(Image.open(im_path))
 image1 = NN_interpolation(image, image.shape[0] * 2, image.shape[1] * 2)
 image1 = Image.fromarray(image1.astype('uint8'))
 image1.save('./first_small_img_test_10_10_out.jpg.jpg')
+
+
+image_path = './first_small_img_test-01.jpg'
+image_title = input("novo titulo de imagem: ")
+image_title = image_title + ".jpg"
+image_to_grey(image_path, image_title)
+image_array = image_to_array(image_title)
+
+new_image_array = intensity.IntensityLog(image_array, 10, 10)
+print(new_image_array)
+Image.fromarray(new_image_array).save(image_title)
 
 print("\nEnd of processing... ")
 
